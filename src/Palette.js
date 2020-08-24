@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import ColourBox from './ColourBox'
 import Navbar from './Navbar'
 import './Palette.css'
-import { hex } from 'chroma-js';
 
 export default class Palette extends Component {
   constructor (props) {
@@ -25,11 +24,11 @@ export default class Palette extends Component {
   }
 
   render() {
-    const { colours } = this.props.palette;
+    const { colours, paletteName, emoji } = this.props.palette;
     const { level, format } = this.state;
 
     const colourBoxes = colours[level].map(colour => (
-      <ColourBox background={ colour[format] } name={ colour.name }/>
+      <ColourBox background={ colour[format] } name={ colour.name } key={ colour.id }/>
     ));
 
     return (
@@ -38,7 +37,10 @@ export default class Palette extends Component {
         <div className="Palette-colours">
           {colourBoxes}
         </div>
-        {/* footer */}
+        <footer className='Palette-footer'>
+          {paletteName}
+          <span className='emoji'>{emoji}</span>
+        </footer>
       </div>
     )
   }
