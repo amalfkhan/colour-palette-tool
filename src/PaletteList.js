@@ -22,6 +22,7 @@ const styles = {
     display: 'flex',
     width: '100%',
     justifyContent: 'space-between',
+    color: 'white',
   },
   palettes: {
     boxSizing: 'border-box',
@@ -56,8 +57,6 @@ class PaletteList extends Component {
             ))}
           </div>
         </div>
-
-        
       </div>
     )
   }
